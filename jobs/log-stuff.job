@@ -1,0 +1,25 @@
+job "log-stuff" {
+  type = "service"
+  datacenters = ["dc1"]
+  update {
+    health_check = "task_states"
+  }
+  group "log-stuff" {
+    count = 5
+    task "log-stuff" {
+      driver = "exec"
+      config {
+        command = "spew"
+        args    = ["${NOMAD_ALLOC_ID}"]
+      }
+      artifact {
+        source = "https://github.com/mmcquillan/spew/releases/download/v0.2/spew.tar.gz"
+      }
+      env {
+        SPEW_OUT = "nomad cluster fun"
+        SPEW_INTERVAL = "15s"
+      }
+    }
+  }
+}
+

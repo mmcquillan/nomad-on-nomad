@@ -1,0 +1,35 @@
+job "test-srv" {
+  type = "service"
+  datacenters = ["dc1"]
+  update {
+    max_parallel = 5
+    health_check = "task_states"
+    stagger = "15s"
+    healthy_deadline = "8m"
+    progress_deadline = "15m"
+    canary = 2
+  }
+  group "test-srv" {
+    count = 14
+    task "test-srv" {
+      driver = "exec"
+      resources {
+        memory = 80
+        cpu = 100
+      }
+      config {
+        command = "spew"
+        args    = ["${NOMAD_ALLOC_ID}"]
+      }
+      artifact {
+        source = "https://github.com/mmcquillan/spew/releases/download/v0.2/spew.tar.gz"
+        #source = "http://192.168.0.110:8000/spew.tar.gz"
+      }
+      env {
+        SPEW_OUT = "nomad cluster fun"
+        SPEW_INTERVAL = "15s"
+      }
+    }
+  }
+}
+
