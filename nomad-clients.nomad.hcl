@@ -59,6 +59,7 @@ job "nomad-clients" {
           "-node=nmdc1",
           "-bind=10.10.20.1",
           "-client",
+          "-config=local/config.hcl",
           "-data-dir=/tmp/nomad/nmdc1",
           "-dc=dc1",
           "-node-pool=default",
@@ -67,6 +68,10 @@ job "nomad-clients" {
           "-servers=10.10.10.2:4647",
           "-servers=10.10.10.3:4647"
         ]
+      }
+      template {
+        data = "plugin \"raw_exec\" { config { enabled = true } }"
+        destination = "local/config.hcl"
       }
       resources {
         cpu    = 10000
@@ -122,6 +127,7 @@ job "nomad-clients" {
           "-node=nmdc2",
           "-bind=10.10.20.2",
           "-client",
+          "-config=local/config.hcl",
           "-data-dir=/tmp/nomad/nmdc2",
           "-dc=dc1",
           "-node-pool=default",
@@ -130,6 +136,10 @@ job "nomad-clients" {
           "-servers=10.10.10.2:4647",
           "-servers=10.10.10.3:4647"
         ]
+      }
+      template {
+        data = "plugin \"raw_exec\" { config { enabled = true } }"
+        destination = "local/config.hcl"
       }
       resources {
         cpu    = 10000
@@ -185,6 +195,7 @@ job "nomad-clients" {
           "-node=nmdc3",
           "-bind=10.10.20.3",
           "-client",
+          "-config=local/config.hcl",
           "-data-dir=/tmp/nomad/nmdc3",
           "-dc=dc1",
           "-node-pool=default",
@@ -193,6 +204,10 @@ job "nomad-clients" {
           "-servers=10.10.10.2:4647",
           "-servers=10.10.10.3:4647"
         ]
+      }
+      template {
+        data = "plugin \"raw_exec\" { config { enabled = true } }"
+        destination = "local/config.hcl"
       }
       resources {
         cpu    = 10000
@@ -248,6 +263,7 @@ job "nomad-clients" {
           "-node=nmdc4",
           "-bind=10.10.20.4",
           "-client",
+          "-config=local/config.hcl",
           "-data-dir=/tmp/nomad/nmdc4",
           "-dc=dc1",
           "-node-pool=default",
@@ -256,6 +272,10 @@ job "nomad-clients" {
           "-servers=10.10.10.2:4647",
           "-servers=10.10.10.3:4647"
         ]
+      }
+      template {
+        data = "plugin \"raw_exec\" { config { enabled = true } }"
+        destination = "local/config.hcl"
       }
       resources {
         cpu    = 10000
@@ -311,6 +331,7 @@ job "nomad-clients" {
           "-node=nmdc5",
           "-bind=10.10.20.5",
           "-client",
+          "-config=local/config.hcl",
           "-data-dir=/tmp/nomad/nmdc5",
           "-dc=dc1",
           "-node-pool=default",
@@ -319,6 +340,10 @@ job "nomad-clients" {
           "-servers=10.10.10.2:4647",
           "-servers=10.10.10.3:4647"
         ]
+      }
+      template {
+        data = "plugin \"raw_exec\" { config { enabled = true } }"
+        destination = "local/config.hcl"
       }
       resources {
         cpu    = 10000
@@ -374,6 +399,7 @@ job "nomad-clients" {
           "-node=nmdc6",
           "-bind=10.10.20.6",
           "-client",
+          "-config=local/config.hcl",
           "-data-dir=/tmp/nomad/nmdc6",
           "-dc=dc1",
           "-node-pool=default",
@@ -382,6 +408,10 @@ job "nomad-clients" {
           "-servers=10.10.10.2:4647",
           "-servers=10.10.10.3:4647"
         ]
+      }
+      template {
+        data = "plugin \"raw_exec\" { config { enabled = true } }"
+        destination = "local/config.hcl"
       }
       resources {
         cpu    = 10000
